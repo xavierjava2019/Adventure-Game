@@ -7,9 +7,15 @@ public class Main {
         //Objects included in the game
         Scanner in = new Scanner(System.in);
         Random rand = new Random();
+        System.out.println(" Welcome to Magic Quest! ");
+        System.out.println("As you enter a dark cave, you see many paths lie before you. Reluctantly, you choose to walk down one of them");
+        System.out.println("Which path do you choose to traverse?");
+
 
         //Var sets and data sets for enemies
-        String[] foe = { "Necromancer", "Sorcerer", "Wizard", "Evil Witch"};
+        String[] Magicfoe = { "Necromancer", "Sorcerer", "Wizard", "Evil Witch" };
+        String[] Rangedfoe = { "Archer", "Gunslinger", "Hunter", "Ninja"};
+        String[] MeleeFoe = { "Swordsman", "Spear-wielder", "Assassin", "Axeman"};
         int HPEnemyMax = 125;
         int DamageDealtFromEnemy = 75;
 
@@ -21,14 +27,13 @@ public class Main {
         int PotDropPercent = 50; //This value is a percentage
 
         boolean activated = true;
-        System.out.println("Magic Quest!");
 
         GAME:
         while(activated) {
             System.out.println("----------------------------------------------");
 
             int HPEnemy = rand.nextInt(HPEnemyMax);
-            String foes = foe[rand.nextInt(foe.length)];
+            String foes = Magicfoe[rand.nextInt(Magicfoe.length)];
             System.out.println("\t# " + foes + " has arrived! #\n");
 
             while(HPEnemy > 0) {
@@ -38,6 +43,28 @@ public class Main {
                 System.out.println("\t1. Strike foe");
                 System.out.println("\t2. Consume Healing Potion");
                 System.out.println("\t3. Flee");
+
+
+
+                String input = in.nextLine();
+                if(input.equals("1")) {
+                    int Infliction = rand.nextInt(DamageDealtFromPlayer);
+                    int Injury = rand.nextInt(DamageDealtFromEnemy);
+
+                }
+                else if(input.equals("2")) {
+
+                }
+                else if(input.equals("3")) {
+
+                }
+                else {
+
+
+
+                }
+
+
 
             }
 
