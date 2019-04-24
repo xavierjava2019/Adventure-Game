@@ -36,7 +36,7 @@ public class Main {
             String foes = Magicfoe[rand.nextInt(Magicfoe.length)];
             System.out.println("\t# " + foes + " has arrived! #\n");
 
-            while(HPEnemy > 0) {
+            while (HPEnemy > 0) {
                 System.out.println("\tYour Health Points: " + PlayerHP);
                 System.out.println("\t" + foes + "'s Health Points: " + HPEnemy);
                 System.out.println("\n\tChoose an action");
@@ -45,56 +45,58 @@ public class Main {
                 System.out.println("\t3. Flee");
 
 
-
                 String input = in.nextLine();
-                if(input.equals("1")) {
+                if (input.equals("1")) {
                     int Infliction = rand.nextInt(DamageDealtFromPlayer);
                     int Injury = rand.nextInt(DamageDealtFromEnemy);
 
-                }
-                else if(input.equals("2")) {
+                    HPEnemy -= Infliction;
+                    PlayerHP -= Injury;
+
+                    System.out.println("\t- You attack the " + foes + " for " + Infliction + " damage ");
+                    System.out.println("\t- The " + foes + " attacks you and you lose " + Injury + " HP as a result of your attack!");
+
+                    if (PlayerHP < 1) {
+                        System.out.println("\t- The " + foes + " has hurt you too much, you cannot continue, goodbye!");
+                        break;
+
+                    }
+
+                } else if (input.equals("2")) {
+                    if (AmountOfHealingPotions > 0) {
+                        PlayerHP += HealthRestoration;
+                        AmountOfHealingPotions--;
+                        System.out.println("\t- Consuming a potion of healing, you gain " + HealthRestoration + " HP. " + "\n\t- You now have " + PlayerHP + " HP. " + "\n\t- You now have " + AmountOfHealingPotions + " Potion(s) of healing left.\n");
+                    }
+                    else {
+                        System.out.println("\t- Your supply of potions of healing has run out. If you can slay another enemy, you shall be granted another one!\n");
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    } else if (input.equals("3")) {
+
+                    } else {
+
+
+                    }
+
 
                 }
-                else if(input.equals("3")) {
-
-                }
-                else {
-
-
-
-                }
-
 
 
             }
 
 
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-}
