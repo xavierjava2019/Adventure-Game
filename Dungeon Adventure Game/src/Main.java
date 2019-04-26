@@ -7,9 +7,7 @@ public class Main {
         //Objects included in the game
         Scanner in = new Scanner(System.in);
         Random rand = new Random();
-        System.out.println(" Welcome to Magic Quest! ");
-        System.out.println("As you enter a dark cave, you see many paths lie before you. Reluctantly, you choose to walk down one of them");
-        System.out.println("Which path do you choose to traverse?");
+
 
 
         //Var sets and data sets for enemies
@@ -27,6 +25,9 @@ public class Main {
         int PotDropPercent = 50; //This value is a percentage
 
         boolean activated = true;
+        System.out.println(" Welcome to Magic Quest! ");
+        System.out.println("As you enter a dark cave, you see many paths lie before you. Reluctantly, you choose to walk down one of them");
+        System.out.println("Which path do you choose to traverse?");
 
         GAME:
         while(activated) {
@@ -60,6 +61,7 @@ public class Main {
                         System.out.println("\t- The " + foes + " has hurt you too much, you cannot continue, goodbye!");
                         break;
 
+
                     }
 
                 } else if (input.equals("2")) {
@@ -70,33 +72,49 @@ public class Main {
                     }
                     else {
                         System.out.println("\t- Your supply of potions of healing has run out. If you can slay another enemy, you shall be granted another one!\n");
+                        }
+
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    } else if (input.equals("3")) {
-
-                    } else {
+                    else if (input.equals("3")) {
+                        System.out.println("\t- You cower in fear and retreat, safe from the " + foes + "'s attack");
+                        continue GAME;
 
 
                     }
+                    else {
+                        System.out.println("\tInput does not execute known command");
 
 
+                    }
                 }
+
+            if(PlayerHP < 1) {
+                System.out.println("You have died! Game over!");
+                break;
+            }
+
+            System.out.println("----------------------------------------------");
+            System.out.println(" # " + foes + " has been slain! #");
+            System.out.println(" # You have " + PlayerHP + " HP remaining! #");
+            if(rand.nextInt(100) < PotDropPercent) {
+                AmountOfHealingPotions ++;
+                System.out.println(" # The " + foes + " dropped a potion of healing! # ");
+                System.out.println(" # Current potion(s) of healing supply: " + AmountOfHealingPotions + " #");
+            }
+            System.out.println("----------------------------------------------");
+            System.out.println("Choose an action:");
+            System.out.println("1. Fight on!");
+            System.out.println("2. Get outta here!");
+
+
+
+
+
+
+
+
 
 
             }
-
-
         }
     }
