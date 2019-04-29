@@ -106,15 +106,26 @@ public class Main {
             System.out.println("1. Fight on!");
             System.out.println("2. Get outta here!");
 
+            String input = in.nextLine();
 
+            while(!input.equals("1") && !input.equals("2")) {
+                System.out.println("Command does not exist, sorry!");
+                input = in.nextLine();
 
+                }
 
+         if(input.equals("1")) {
+             System.out.println("The adventure will go on!");
+         }
+           else if(input.equals("2")) {
+               System.out.println("With an attitude of glory you exit this cave victoriously!");
 
-
-
-
-
-
+                }
             }
+
+        System.out.println("#######################################################");
+        System.out.println(" # THANK YOU FOR PARTICIPATING IN THE WIZARD'S QUEST # ");
+        System.out.println("#######################################################");
+
         }
     }
